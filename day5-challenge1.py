@@ -5,7 +5,7 @@ input = open('day5.input')
 
 import re
 
-double_letters = re.compile(r"(.)\1")
+double_letters = re.compile(r"([a-z])\1")
 vowels = re.compile(r"([aeiou])")
 bad = re.compile(r"ab|bc|pq|xy")
 
@@ -15,7 +15,5 @@ line_no = 1
 for line in input:
     if len(vowels.findall(line)) > 2 and double_letters.findall(line) and not bad.findall(line):
         count += 1
-        print 'adding one for line ', line_no
-    line_no += 1
         
 print count
